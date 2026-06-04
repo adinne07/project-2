@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#071426" />
+  <title>Papan Taktik Silat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app-shell">
+
+    <!-- HEADER -->
+    <header class="app-header">
+      <div class="brand-wrapper">
+        <img src="papan_taktik_silat_icon.png" alt="Logo" class="app-logo" />
+
+        <div class="text-wrapper">
+          <p class="eyebrow">Papan Taktik</p>
+          <h1>Lapangan Silat</h1>
+        </div>
+      </div>
+
+      <button class="reset-btn" id="resetBtn">
+        Reset
+      </button>
+    </header>
+
+    <!-- TIGA POSISI -->
+    <div class="tiga-container">
+      <div class="tiga-box-gradient">3</div>
+    </div>
+
+
+    <!-- LAPANGAN SILAT -->
+    <section id="arena" class="arena" aria-label="Lapangan Taktik Silat">
+      <!-- ELEMEN LAPANGAN -->
+      <div class="mat-grid"></div>
+      <div class="outer-circle"></div>
+
+      <div class="tiga-box-gradient box-samping-kiri">3</div>
+      <div class="tiga-box-gradient box-samping-kanan">1</div>
+
+
+      <div class="corner-label top-left"></div>
+      <div class="corner-label top-right"></div>
+
+      <!-- LABEL SUDUT -->
+      <div class="corner-label top-left"></div>
+      <div class="corner-label top-right"></div>
+      <div class="corner-label bottom-left"></div>
+      <div class="corner-label bottom-right"></div>
+
+      <div class="center-boxes-container">
+        <div class="center-box box-blue"></div>
+        <div class="center-box box-red"></div>
+      </div>
+
+      <!-- PESILAT MERAH -->
+      <div class="fighter fighter-red" id="fighterRed" role="button" aria-label="Pesilat Merah" tabindex="0">
+        <div class="fighter-sprite">
+          <img src="pesilat-merah.png" alt="Pesilat Merah" class="sprite-img" draggable="false" />
+        </div>
+        <span>Merah</span>
+      </div>
+
+      <!-- PESILAT BIRU -->
+<!-- PESILAT BIRU -->
+<div class="fighter fighter-blue" id="fighterBlue">
+  <div class="fighter-sprite">
+    <img src="pesilat-biru.png" alt="Pesilat Biru" class="sprite-img" draggable="false" />
+    <div class="belt-overlay belt-blue"></div> <!-- sabuk biru overlay -->
+  </div>
+  <span>Biru</span>
+</div>
+
+      <!-- WASIT -->
+      <div class="fighter fighter-yellow fighter-referee" id="fighterYellow" role="button" aria-label="Wasit"
+        tabindex="0">
+        <div class="fighter-sprite referee-sprite">
+          <img src="wasit.png" alt="Wasit Silat" class="sprite-img" draggable="false" />
+        </div>
+        <span>Wasit</span>
+      </div>
+    </section>
+
+    <div class="kp-container">
+      <div class="kp-box-gradient">KP</div>
+    </div>
+
+    <!-- TOMBOL AKSI -->
+    <section class="quick-actions">
+      <button class="attack-btn" data-tutorial="attack">
+        Attack
+      </button>
+
+      <button class="defence-btn" data-tutorial="defence">
+        Defence
+      </button>
+    </section>
+
+    <!-- PETUNJUK -->
+    <p class="hint">
+      Geser pesilat merah, biru, dan Wasit dengan jari. Semua objek tetap dibatasi di dalam lapangan.
+    </p>
+
+  </main>
+
+  <!-- BOTTOM SHEET VIDEO TUTORIAL -->
+  <div id="tutorialSheet" class="tutorial-sheet" aria-hidden="true">
+
+    <div class="sheet-handle"></div>
+
+    <div class="sheet-header">
+      <div>
+        <p id="tutorialType" class="eyebrow">
+          Tutorial
+        </p>
+
+        <h3 id="tutorialTitle">
+          Video Tutorial
+        </h3>
+      </div>
+
+      <button id="closeTutorial" class="close-button">
+        ×
+      </button>
+    </div>
+
+    <div id="videoList" class="video-list"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

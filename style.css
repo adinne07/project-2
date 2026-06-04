@@ -1,0 +1,531 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+  background: #071426;
+  color: #ffffff;
+  overflow-x: hidden;
+  touch-action: manipulation;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  padding: 18px;
+  background: #071426;
+}
+
+/* ==========================================================================
+   HEADER (LOGO & JUDUL BERJEJER KE SAMPING)
+   ========================================================================== */
+
+/* ==========================================================================
+   HEADER (LOGO & JUDUL BERJEJER DAN TERPOJOK)
+   ========================================================================== */
+
+.app-header {
+  display: flex !important;
+  justify-content: space-between !important; /* Memaksa logo mentok kiri, reset-btn mentok kanan */
+  align-items: center !important;            /* Menyeimbangkan posisi atas-bawah */
+  width: 100% !important;                     /* Memastikan lebar header penuh mengikuti app-shell */
+  margin-bottom: 14px;
+  padding: 0 !important;                      /* Menghilangkan padding bawaan jika ada */
+}
+
+/* Membuat logo dan teks berjejer horizontal dan mepet ke kiri */
+.brand-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px; 
+  margin: 0 !important;                       /* Menghilangkan margin bawaan */
+  padding: 0 !important;
+  flex-grow: 1;                               /* Mengizinkan area ini mengambil ruang yang tersedia */
+}
+
+/* Memastikan teks Papan Taktik dan Lapangan Silat tetap tersusun atas-bawah */
+.text-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;        /* Memaksa semua teks di dalamnya rata kiri */
+}
+
+/* Mengatur dimensi ukuran logo */
+.app-logo {
+  width: 48px;         
+  height: 48px;         
+  object-fit: contain; 
+  border-radius: 20%; 
+}
+
+/* Memastikan teks tidak memiliki margin bawaan yang merusak jarak */
+.text-wrapper p, 
+.text-wrapper h1 {
+  margin: 0 !important;
+  text-align: left !important;                /* Memastikan teks rata kiri */
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #facc15;
+  font-weight: 700;
+}
+
+.app-header h1 {
+  margin-top: 4px !important;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.reset-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 16px;
+  background: #facc15;
+  color: #111827;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(250, 204, 21, 0.28);
+  flex-shrink: 0;                             /* Mencegah tombol reset gepeng atau mengecil */
+}
+
+/* ==========================================================================
+   TIGA / POSISI
+   ========================================================================== */
+
+.tiga-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0; 
+}
+
+/* KOTAK GRADASI */
+.tiga-box-gradient {
+  width: 35px;               
+  height: 35px;               
+  background: linear-gradient(to right, #991b1b 0%, #991b1b 32%, #2563eb 100%);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1.6rem;          
+  font-weight: 850;           
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px; 
+} /* KURUNG KURAWAL PENUTUP SUDAH DIPERBAIKI DI SINI */
+
+.tiga-samping-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;                 
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between; 
+  padding: 0 10px;          
+  pointer-events: none;     
+  z-index: 100;             
+}
+
+.tiga-samping-wrapper .tiga-box-gradient {
+  pointer-events: auto;
+}
+
+.box-kiri {
+  margin-left: 5px;         
+}
+
+.box-kanan {
+  margin-right: 5px;        
+}
+
+/* ==========================================================================
+   ARENA LAPANGAN
+   ========================================================================== */
+
+.arena {
+  width: 100%;
+  height: 560px;
+  max-height: calc(100vh - 230px);
+  min-height: 440px;
+  position: relative;
+  overflow: visible !important; 
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 34%),
+    linear-gradient(135deg, #16834d 0%, #0f6d3e 48%, #0b5b33 100%);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.38);
+}
+
+.box-samping-kiri {
+  position: absolute !important;
+  left: -45px;                 
+  top: 50% !important;         
+  transform: translateY(-50%);
+  z-index: 100;                
+}
+
+.box-samping-kanan {
+  position: absolute !important;
+  right: -45px;                
+  top: 50% !important;         
+  transform: translateY(-50%);
+  z-index: 100;                
+}
+
+.center-boxes-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  display: flex;
+  gap: 15px; 
+  z-index: 1; 
+}
+
+.center-box {
+  width: 60px;  
+  height: 89px; 
+}
+
+.box-blue {
+  border-radius: 10%;
+  background-color: #2523c2; 
+}
+
+.box-red {
+  border-radius: 10%;
+  background-color: #e50000; 
+}
+
+.outer-circle {
+  position: absolute;
+  width: 370px;
+  height: 370px;
+  border: 5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.corner-label {
+  position: absolute;
+  width: 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  background: rgba(218, 191, 38, 0.884);
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  background: rgba(218, 191, 38, 0.884);
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0; 
+  background: rgba(119, 0, 255, 0.884);
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 2, 2, 0.884);
+}
+
+/* ==========================================================================
+   PESILAT / WASIT - IMAGE SPRITE VERSION
+   ========================================================================== */
+
+.fighter {
+  width: 80px;
+  height: 140px;
+  position: absolute;
+  z-index: 10;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.fighter:active {
+  cursor: grabbing;
+}
+
+.fighter-sprite {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sprite-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.22));
+}
+
+/* label nama */
+.fighter span {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  background: rgba(7, 20, 38, 0.82);
+  border-radius: 999px;
+  padding: 3px 8px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* POSISI AWAL VISUAL */
+.fighter-red {
+  left: 70px;
+  top: 220px;
+}
+
+.fighter-blue {
+  left: 240px;
+  top: 220px;
+}
+
+.fighter-referee {
+  width: 75px;
+  height: 125px;
+}
+
+/* PESILAT MERAH - arah asli gambar */
+.fighter-red .fighter-sprite {
+  transform: scaleX(-1);
+  transform-origin: center;
+}
+
+/* PESILAT BIRU - dibalik supaya hadap-hadapan */
+.fighter-blue .fighter-sprite {
+  transform: scaleX(1);
+  transform-origin: center;
+}
+
+
+/* Supaya tulisan Biru tidak ikut terbalik */
+.fighter-blue span {
+  transform: translateX(-50%) !important;
+}
+
+
+
+/* hilangkan style elemen body-part lama jika masih ada */
+.fighter .head,
+.fighter .body,
+.fighter .arm,
+.fighter .leg {
+  display: none !important;
+}
+/* ==========================================================================
+   TOMBOL AKSI & FOOTER
+   ========================================================================== */
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.quick-actions button {
+  border: none;
+  border-radius: 18px;
+  padding: 15px 12px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.24);
+}
+
+.quick-actions button:active {
+  transform: scale(0.97);
+}
+
+.kp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0; 
+}
+
+.kp-box-gradient {
+  width: 160px;               
+  height: 52px;               
+  background: linear-gradient(to right, #991b1b 0%, #991b1b 32%, #2563eb 100%);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1.6rem;          
+  font-weight: 850;           
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;        
+}
+
+.attack-btn { background: linear-gradient(135deg, #ef4444, #991b1b); }
+.defence-btn { background: linear-gradient(135deg, #2563eb, #1e3a8a); }
+
+.hint {
+  margin: 14px 4px 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #cbd5e1;
+  text-align: center;
+}
+
+/* ==========================================================================
+   BOTTOM SHEET TUTORIAL
+   ========================================================================== */
+
+.tutorial-sheet {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  max-width: 430px;
+  max-height: 78vh;
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 28px 28px 0 0;
+  transform: translate(-50%, 105%);
+  transition: transform 0.28s ease;
+  z-index: 1000;
+  padding: 12px 18px 22px;
+  box-shadow: 0 -14px 35px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow-y: auto;
+}
+
+.tutorial-sheet.active {
+  transform: translate(-50%, 0);
+}
+
+.sheet-handle {
+  width: 48px;
+  height: 5px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 999px;
+  margin: 0 auto 14px;
+}
+
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sheet-header h3 {
+  margin: 4px 0 0;
+  font-size: 20px;
+}
+
+.close-button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.video-list {
+  display: grid;
+  gap: 14px;
+}
+
+.video-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 12px;
+}
+
+.video-card h4 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 14px;
+  background: #000000;
+  outline: none;
+}
+
+.video-note {
+  font-size: 12px;
+  margin-top: 6px;
+  text-align: center;
+  color: #cbd5e1;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT
+   ========================================================================== */
+
+@media (max-width: 360px) {
+  .app-shell { padding: 14px; }
+  .app-header h1 { font-size: 21px; }
+  .arena { min-height: 420px; }
+  .outer-circle { width: 220px; height: 220px; }
+}
+
+/* Posisikan header secara absolut untuk keluar dari jebakan elemen lain */
+.app-header {
+  position: absolute !important;
+  top: 18px !important;
+  left: 18px !important;
+  right: 18px !important;
+  width: calc(100% - 36px) !important;
+  z-index: 9999 !important;
+}
+
+/* Berikan jarak pada elemen di bawahnya agar tidak tertutup header */
+.tiga-container {
+  margin-top: 80px !important; 
+}
