@@ -28,6 +28,14 @@ body {
   background: #071426;
 }
 
+/* ==========================================================================
+   HEADER (LOGO & JUDUL BERJEJER KE SAMPING)
+   ========================================================================== */
+
+/* ==========================================================================
+   HEADER (LOGO & JUDUL BERJEJER DAN TERPOJOK)
+   ========================================================================== */
+
 .app-header {
   display: flex !important;
   justify-content: space-between !important; /* Memaksa logo mentok kiri, reset-btn mentok kanan */
@@ -155,10 +163,9 @@ body {
 
 .arena {
   width: 100%;
-  aspect-ratio: 1;
-  max-width: 560px;
-  height: auto;
-  margin: 0 auto;
+  height: 560px;
+  max-height: calc(100vh - 230px);
+  min-height: 440px;
   position: relative;
   overflow: visible !important; 
   background:
@@ -169,29 +176,18 @@ body {
 
 .box-samping-kiri {
   position: absolute !important;
-  left: -50px;                 
+  left: -45px;                 
   top: 50% !important;         
   transform: translateY(-50%);
-  z-index: 100;
-  display: none;
+  z-index: 100;                
 }
 
 .box-samping-kanan {
   position: absolute !important;
-  right: -50px;                
+  right: -45px;                
   top: 50% !important;         
   transform: translateY(-50%);
-  z-index: 100;
-  display: none;
-}
-
-@media (min-width: 600px) {
-  .box-samping-kiri {
-    display: flex !important;
-  }
-  .box-samping-kanan {
-    display: flex !important;
-  }
+  z-index: 100;                
 }
 
 .center-boxes-container {
@@ -205,10 +201,8 @@ body {
 }
 
 .center-box {
-  width: 10%;
-  aspect-ratio: 0.674;
-  min-width: 40px;
-  max-width: 60px;
+  width: 60px;  
+  height: 89px; 
 }
 
 .box-blue {
@@ -223,24 +217,19 @@ body {
 
 .outer-circle {
   position: absolute;
-  width: 85%;
-  height: 85%;
-  aspect-ratio: 1;
-  border: 3px solid rgba(255, 255, 255, 0.95);
+  width: 370px;
+  height: 370px;
+  border: 5px solid rgba(255, 255, 255, 0.95);
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 220px;
-  max-width: 370px;
 }
 
 .corner-label {
   position: absolute;
-  width: 18%;
-  aspect-ratio: 1.33;
-  min-width: 50px;
-  max-width: 80px;
+  width: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -275,10 +264,8 @@ body {
    ========================================================================== */
 
 .fighter {
-  width: 12%;
-  aspect-ratio: 0.571;
-  min-width: 50px;
-  max-width: 80px;
+  width: 80px;
+  height: 140px;
   position: absolute;
   z-index: 10;
   cursor: grab;
@@ -326,20 +313,18 @@ body {
 
 /* POSISI AWAL VISUAL */
 .fighter-red {
-  left: 15%;
-  top: 45%;
+  left: 70px;
+  top: 220px;
 }
 
 .fighter-blue {
-  right: 15%;
-  top: 45%;
+  left: 240px;
+  top: 220px;
 }
 
 .fighter-referee {
-  width: 11%;
-  aspect-ratio: 0.6;
-  min-width: 45px;
-  max-width: 75px;
+  width: 75px;
+  height: 125px;
 }
 
 /* PESILAT MERAH - arah asli gambar */
@@ -524,40 +509,23 @@ body {
    ========================================================================== */
 
 @media (max-width: 360px) {
-  .app-shell { padding: 12px; }
-  .app-header h1 { font-size: 20px; }
-  .tiga-box-gradient { width: 28px; height: 28px; font-size: 1.2rem; }
-  .tiga-container { margin: 14px 0; }
-  .kp-box-gradient { width: 120px; height: 40px; font-size: 1.2rem; }
-  .quick-actions button { padding: 12px 10px; font-size: 14px; }
-}
-
-@media (max-width: 480px) {
   .app-shell { padding: 14px; }
-  .arena { margin-bottom: 12px; }
+  .app-header h1 { font-size: 21px; }
+  .arena { min-height: 420px; }
+  .outer-circle { width: 220px; height: 220px; }
 }
 
-@media (min-width: 481px) {
-  .tiga-container { margin: 24px 0; }
-  .kp-container { margin: 24px 0; }
-}
-
-/* Posisikan header di dalam normal flow */
+/* Posisikan header secara absolut untuk keluar dari jebakan elemen lain */
 .app-header {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
-  margin-bottom: 16px;
-  padding: 0 !important;
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
-  z-index: 100;
+  position: absolute !important;
+  top: 18px !important;
+  left: 18px !important;
+  right: 18px !important;
+  width: calc(100% - 36px) !important;
+  z-index: 9999 !important;
 }
 
-/* Hapus margin-top berlebihan pada tiga-container */
+/* Berikan jarak pada elemen di bawahnya agar tidak tertutup header */
 .tiga-container {
-  margin-top: 0 !important; 
+  margin-top: 80px !important; 
 }
