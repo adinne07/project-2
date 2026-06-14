@@ -58,21 +58,21 @@ const tutorials = {
 /* POSISI AWAL */
 const defaultPositions = {
   red: {
-    x: 195,
-    y: 160
+    x: 198,
+    y: 190
   },
   blue: {
-    x: 120,
-    y: 160
+    x: 116,
+    y: 190
   },
   yellow: {
     x: 160,
-    y: 60
+    y: 100
   }
 };
 
-/* SET POSISI AWAL SAAT HALAMAN DIBUKA */
-window.addEventListener("load", function () {
+/* JIKA UKURAN LAYAR BERUBAH, KEMBALIKAN PESILAT KE KOTAKNYA */
+window.addEventListener("resize", function () {
   resetPositions();
 });
 
@@ -89,13 +89,19 @@ function resetPositions() {
   updateAllPositions();
 }
 
-/* FUNGSI SET POSISI */
+/* FUNGSI SET POSISI (Mendukung Persentase & Pixel) */
 function setFighterPosition(fighter, x, y) {
+  // Hitung batas maksimum agar tidak keluar dari arena
   const maxX = arena.clientWidth - fighter.offsetWidth;
   const maxY = arena.clientHeight - fighter.offsetHeight;
 
-  const safeX = clamp(x, 0, maxX);
-  const safeY = clamp(y, 0, maxY);
+  // Jika posisi awal menggunakan persen (di bawah 100), ubah ke pixel secara dinamis
+  let finalX = x < 100 ? (x / 100) * arena.clientWidth : x;
+  let finalY = y < 100 ? (y / 100) * arena.clientHeight : y;
+
+  // Amankan posisi agar tidak offset keluar arena
+  const safeX = clamp(finalX, 0, maxX);
+  const safeY = clamp(finalY, 0, maxY);
 
   fighter.style.left = safeX + "px";
   fighter.style.top = safeY + "px";
