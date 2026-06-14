@@ -28,14 +28,6 @@ body {
   background: #071426;
 }
 
-/* ==========================================================================
-   HEADER (LOGO & JUDUL BERJEJER KE SAMPING)
-   ========================================================================== */
-
-/* ==========================================================================
-   HEADER (LOGO & JUDUL BERJEJER DAN TERPOJOK)
-   ========================================================================== */
-
 .app-header {
   display: flex !important;
   justify-content: space-between !important; /* Memaksa logo mentok kiri, reset-btn mentok kanan */

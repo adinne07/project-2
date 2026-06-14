@@ -58,16 +58,16 @@ const tutorials = {
 /* POSISI AWAL */
 const defaultPositions = {
   red: {
-    x: 198,
-    y: 190
+    x: 52,
+    y: 43
   },
   blue: {
-    x: 116,
-    y: 190
+    x: 31,
+    y: 43
   },
   yellow: {
-    x: 160,
-    y: 100
+    x: 41,
+    y: 15
   }
 };
 
